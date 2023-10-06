@@ -27,7 +27,7 @@ class DailyForecastItem extends StatelessWidget {
                 children: [
                   Text(
                     'Clear',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
                   ),
                   SizedBox(
                     width: 10,
