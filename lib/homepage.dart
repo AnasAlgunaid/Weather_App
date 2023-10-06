@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/helpers.dart';
 
+import 'daily_forecast_item.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -16,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
+          child: ListView(
             children: [
               const SizedBox(
                 width: double.infinity,
@@ -134,43 +136,76 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                  height: 140,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 8, 12, 8),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8)),
-                            color: Colors.grey[900],
-                          ),
-                          child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 4, horizontal: 30),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  const Text(
-                                    "12:00",
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                  Icon(Icons.sunny,
-                                      size: 25, color: Colors.yellow[700]),
-                                  const Text(
-                                    "30°C",
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                ],
-                              )),
+                height: 140,
+                width: double.infinity,
+                child: ListView.builder(
+                  itemCount: 10,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 8, 12, 8),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8)),
+                          color: Colors.grey[900],
                         ),
-                      );
-                    },
-                  )),
+                        child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 30),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                const Text(
+                                  "12:00",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                Icon(Icons.sunny,
+                                    size: 25, color: Colors.yellow[700]),
+                                const Text(
+                                  "30°C",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ],
+                            )),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const SizedBox(
+                width: double.infinity,
+                child: Text(
+                  'Daily Forecast',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Column(
+                children: [
+                  DailyForecastItem(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  DailyForecastItem(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  DailyForecastItem(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
             ],
           ),
         ),
