@@ -29,14 +29,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 90,
                 child: ListView.builder(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 16, 8),
                   scrollDirection: Axis.horizontal,
                   itemCount: saudiArabiaCities.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.fromLTRB(0, 8, 16, 8),
                       child: GestureDetector(
                         child: Container(
                           width: 150,
@@ -122,43 +122,55 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  color: Colors.grey[900],
-                ),
-                child: const Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'High: ',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Low: ',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               const SizedBox(
-                height: 30,
+                width: double.infinity,
+                child: Text(
+                  'Hourly Forecast',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
               ),
+              SizedBox(
+                  height: 140,
+                  width: double.infinity,
+                  child: ListView.builder(
+                    itemCount: 10,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 8, 12, 8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8)),
+                            color: Colors.grey[900],
+                          ),
+                          child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 4, horizontal: 30),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  const Text(
+                                    "12:00",
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                  Icon(Icons.sunny,
+                                      size: 25, color: Colors.yellow[700]),
+                                  const Text(
+                                    "30°C",
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                ],
+                              )),
+                        ),
+                      );
+                    },
+                  )),
             ],
           ),
         ),
